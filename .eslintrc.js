@@ -17,8 +17,18 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
+      rules: {},
+    },
+    {
+      files: ["*.ts"],
+      parser: "@typescript-eslint/parser",
+      extends: ["plugin:@typescript-eslint/recommended"],
       rules: {
-        "prettier/prettier": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { argsIgnorePattern: "^_", destructuredArrayIgnorePattern: "^_" },
+        ],
+        "@typescript-eslint/no-non-null-assertion": "off",
       },
     },
   ],
