@@ -1,0 +1,13 @@
+---
+import { pagesBlog } from "@/constants/pagesBlog";
+
+export const getStaticPaths = () => {
+  return pagesBlog.map(pages => ({
+    params: { page: pages.id },
+  }));
+};
+
+const { page } = Astro.params;
+---
+
+<h1>Pages/Blog/{page}</h1>
